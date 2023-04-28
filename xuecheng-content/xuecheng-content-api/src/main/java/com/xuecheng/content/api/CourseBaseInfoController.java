@@ -14,6 +14,14 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @projectName: xuecheng-project
+ * @author: buxitang
+ * @description: 课程信息编辑接口
+ * @date: 2023/4/28 17:50
+ * @version: 1.0
+ */
+
 @Api(value="课程信息管理接口",tags="课程信息管理接口")
 @RestController
 public class CourseBaseInfoController {

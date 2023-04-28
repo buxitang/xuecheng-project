@@ -5,6 +5,14 @@ import lombok.Data;
 import lombok.ToString;
 import lombok.extern.java.Log;
 
+/**
+ * @projectName: xuecheng-project
+ * @author: buxitang
+ * @description: 分页查询通用参数
+ * @date: 2023/4/28 17:50
+ * @version: 1.0
+ */
+
 @Data
 @ToString
 public class PageParams {

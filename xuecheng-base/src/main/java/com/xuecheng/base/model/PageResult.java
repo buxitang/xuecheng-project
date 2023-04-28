@@ -5,6 +5,14 @@ import lombok.ToString;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * @projectName: xuecheng-project
+ * @author: buxitang
+ * @description: 分页查询结果模型类
+ * @date: 2023/4/28 17:50
+ * @version: 1.0
+ */
+
 @Data
 @ToString
 public class PageResult<T> implements Serializable {
