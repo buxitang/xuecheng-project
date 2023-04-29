@@ -7,10 +7,11 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 /**
- * @description 课程基本信息dto
- * @author Mr.M
- * @date 2022/9/7 17:44
- * @version 1.0
+ * @projectName: xuecheng-project
+ * @author: buxitang
+ * @description: 课程基本信息dto
+ * @date: 2023/4/29 19:33
+ * @version: 1.0
  */
 @Data
 public class CourseBaseInfoDto extends CourseBase {

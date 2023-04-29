@@ -1,16 +1,26 @@
 package com.xuecheng.content.service;
 
-import com.xuecheng.content.model.po.CourseCategory;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.xuecheng.content.model.dto.AddCourseDto;
+import com.xuecheng.content.model.dto.CourseBaseInfoDto;
+import com.xuecheng.content.model.dto.CourseCategoryTreeDto;
+
+import java.util.List;
 
 /**
- * <p>
- * 课程分类 服务类
- * </p>
- *
- * @author buxitang
- * @since 2023-04-27
+ * @projectName: xuecheng-project
+ * @author: buxitang
+ * @description: 课程分类查询接口
+ * @date: 2023/4/29 15:16
+ * @version: 1.0
  */
-public interface CourseCategoryService extends IService<CourseCategory> {
+public interface CourseCategoryService {
+    /**
+     * @param id:根节点
+     * @return List<CourseCategoryTreeDto>
+     * @author buxitang
+     * @description 课程分类树形结构查询
+     * @date 2023/4/29 15:17
+     */
+    public List<CourseCategoryTreeDto> queryTreeNodes(String id);
 
 }
