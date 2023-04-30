@@ -5,16 +5,12 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xuecheng.base.exception.XueChengException;
 import com.xuecheng.base.model.PageParams;
 import com.xuecheng.base.model.PageResult;
-import com.xuecheng.content.mapper.CourseBaseMapper;
-import com.xuecheng.content.mapper.CourseCategoryMapper;
-import com.xuecheng.content.mapper.CourseMarketMapper;
+import com.xuecheng.content.mapper.*;
 import com.xuecheng.content.model.dto.AddCourseDto;
 import com.xuecheng.content.model.dto.CourseBaseInfoDto;
 import com.xuecheng.content.model.dto.EditCourseDto;
 import com.xuecheng.content.model.dto.QueryCourseParamsDto;
-import com.xuecheng.content.model.po.CourseBase;
-import com.xuecheng.content.model.po.CourseCategory;
-import com.xuecheng.content.model.po.CourseMarket;
+import com.xuecheng.content.model.po.*;
 import com.xuecheng.content.service.CourseBaseInfoService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -42,6 +38,15 @@ public class CourseBaseInfoServiceImpl  implements CourseBaseInfoService {
 
     @Autowired
     CourseCategoryMapper courseCategoryMapper;
+
+    @Autowired
+    TeachplanMapper teachplanMapper;
+
+    @Autowired
+    TeachplanMediaMapper teachplanMediaMapper;
+
+    @Autowired
+    CourseTeacherMapper courseTeacherMapper;
 
     /**
      * @param pageParams:分页参数
@@ -216,5 +221,36 @@ public class CourseBaseInfoServiceImpl  implements CourseBaseInfoService {
         //查询课程信息
         CourseBaseInfoDto courseBaseInfo = this.getCourseBaseInfo(courseId);
         return courseBaseInfo;
+    }
+
+    /**
+     * @param courseId: 课程id
+     * @return void
+     * @author buxitang
+     * @description 删除课程及其相关信息
+     * @date 2023/4/30 23:07
+     */
+    @Transactional
+    @Override
+    public void deleteCourse(Long courseId){
+        CourseBase courseBase = courseBaseMapper.selectById(courseId);
+        if(!courseBase.getAuditStatus().equals("202002")){
+            XueChengException.cast("课程已提交不能修改");
+        }
+
+        courseBaseMapper.deleteById(courseId);
+        courseMarketMapper.deleteById(courseId);
+
+        LambdaQueryWrapper<Teachplan> lqw1 = new LambdaQueryWrapper<>();
+        lqw1.eq(Teachplan::getCourseId,courseId);
+        teachplanMapper.delete(lqw1);
+
+        LambdaQueryWrapper<TeachplanMedia> lqw2 = new LambdaQueryWrapper<>();
+        lqw2.eq(TeachplanMedia::getCourseId,courseId);
+        teachplanMediaMapper.delete(lqw2);
+
+        LambdaQueryWrapper<CourseTeacher> lqw3 = new LambdaQueryWrapper<>();
+        lqw3.eq(CourseTeacher::getCourseId,courseId);
+        courseTeacherMapper.delete(lqw3);
     }
 }
