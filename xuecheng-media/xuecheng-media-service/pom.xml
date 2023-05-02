@@ -3,23 +3,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>xuecheng-system</artifactId>
+        <artifactId>xuecheng-media</artifactId>
         <groupId>com.xuecheng</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>xuecheng-system-service</artifactId>
-    <name>xuecheng-system-service</name>
-    <description>xuecheng-system-service</description>
+    <artifactId>xuecheng-media-service</artifactId>
+    <name>xuecheng-media-service</name>
+    <description>xuecheng-media-service</description>
 
     <dependencies>
         <dependency>
-            <groupId>com.xuecheng</groupId>
-            <artifactId>xuecheng-system-model</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xuecheng</groupId>
+            <artifactId>xuecheng-media-model</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <!-- MySQL 驱动 -->
