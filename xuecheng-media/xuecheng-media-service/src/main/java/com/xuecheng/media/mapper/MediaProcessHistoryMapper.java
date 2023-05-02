@@ -8,7 +8,7 @@ import com.xuecheng.media.model.po.MediaProcessHistory;
  *  Mapper 接口
  * </p>
  *
- * @author itcast
+ * @author buxitang
  */
 public interface MediaProcessHistoryMapper extends BaseMapper<MediaProcessHistory> {
 

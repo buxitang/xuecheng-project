@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  * 
  * </p>
  *
- * @author itcast
+ * @author buxitang
  */
 @Data
 @TableName("media_process_history")

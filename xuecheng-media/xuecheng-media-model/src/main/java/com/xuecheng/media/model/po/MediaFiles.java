@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  * 媒资信息
  * </p>
  *
- * @author itcast
+ * @author buxitang
  */
 @Data
 @TableName("media_files")
