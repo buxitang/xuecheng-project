@@ -1,6 +1,7 @@
 package com.xuecheng.content.api;
 
 import com.xuecheng.content.model.dto.CourseBaseInfoDto;
+import com.xuecheng.content.model.dto.SaveCourseTeacherDto;
 import com.xuecheng.content.model.po.CourseTeacher;
 import com.xuecheng.content.service.CourseTeacherService;
 import io.swagger.annotations.Api;
@@ -32,10 +33,10 @@ public class CourseTeacherController {
 
     @ApiOperation("添加授课老师、修改授课老师信息")
     @PostMapping("/courseTeacher")
-    public CourseTeacher saveTeacher(@RequestBody CourseTeacher courseTeacher){
+    public SaveCourseTeacherDto saveTeacher(@RequestBody SaveCourseTeacherDto saveCourseTeacherDto){
 
         Long companyId = 1232141425L;
-        return courseTeacherService.saveTeacher(companyId,courseTeacher);
+        return courseTeacherService.saveTeacher(companyId,saveCourseTeacherDto);
     }
 
     @ApiOperation("删除授课老师")

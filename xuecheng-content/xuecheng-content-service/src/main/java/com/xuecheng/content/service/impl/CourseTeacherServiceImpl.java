@@ -4,9 +4,11 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.xuecheng.base.exception.XueChengException;
 import com.xuecheng.content.mapper.CourseBaseMapper;
 import com.xuecheng.content.mapper.CourseTeacherMapper;
+import com.xuecheng.content.model.dto.SaveCourseTeacherDto;
 import com.xuecheng.content.model.po.CourseBase;
 import com.xuecheng.content.model.po.CourseTeacher;
 import com.xuecheng.content.service.CourseTeacherService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,7 +46,7 @@ public class CourseTeacherServiceImpl implements CourseTeacherService {
 
     /**
      * @param companyId: 机构id
-     * @param courseTeacher: 新添、修改老师信息
+     * @param saveCourseTeacherDto: 新添、修改老师信息
      * @return CourseTeacher
      * @author buxitang
      * @description 新添授课老师、修改授课老师信息
@@ -52,22 +54,27 @@ public class CourseTeacherServiceImpl implements CourseTeacherService {
      */
     @Transactional
     @Override
-    public CourseTeacher saveTeacher(Long companyId,CourseTeacher courseTeacher){
-        CourseBase courseBase = courseBaseMapper.selectById(courseTeacher.getCourseId());
-        Long id = courseTeacher.getId();
+    public SaveCourseTeacherDto saveTeacher(Long companyId, SaveCourseTeacherDto saveCourseTeacherDto){
+        CourseBase courseBase = courseBaseMapper.selectById(saveCourseTeacherDto.getCourseId());
+        Long id = saveCourseTeacherDto.getId();
         if (id == null){
             if (!courseBase.getCompanyId().equals(companyId)){
                 XueChengException.cast("本机构只能向本机构的课程添加老师");
             }
+            CourseTeacher courseTeacher = new CourseTeacher();
+            BeanUtils.copyProperties(saveCourseTeacherDto,courseTeacher);
             courseTeacher.setCreateDate(LocalDateTime.now());
             courseTeacherMapper.insert(courseTeacher);
+            BeanUtils.copyProperties(courseTeacher,saveCourseTeacherDto);
         }else{
             if (!courseBase.getCompanyId().equals(companyId)){
                 XueChengException.cast("本机构只能修改本机构课程的老师");
             }
+            CourseTeacher courseTeacher = new CourseTeacher();
+            BeanUtils.copyProperties(saveCourseTeacherDto,courseTeacher);
             courseTeacherMapper.updateById(courseTeacher);
         }
-        return courseTeacher;
+        return saveCourseTeacherDto;
     }
 
     /**

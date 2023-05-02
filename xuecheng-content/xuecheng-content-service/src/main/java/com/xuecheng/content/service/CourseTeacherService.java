@@ -1,5 +1,6 @@
 package com.xuecheng.content.service;
 
+import com.xuecheng.content.model.dto.SaveCourseTeacherDto;
 import com.xuecheng.content.model.po.CourseTeacher;
 import java.util.List;
 
@@ -23,13 +24,13 @@ public interface CourseTeacherService {
 
     /**
      * @param companyId: 机构id
-     * @param courseTeacher: 新添、修改老师信息
+     * @param saveCourseTeacherDto: 新添、修改老师信息
      * @return CourseTeacher
      * @author buxitang
      * @description 新添授课老师、修改授课老师信息
      * @date 2023/4/30 22:14
      */
-    public CourseTeacher saveTeacher(Long companyId,CourseTeacher courseTeacher);
+    public SaveCourseTeacherDto saveTeacher(Long companyId, SaveCourseTeacherDto saveCourseTeacherDto);
 
     /**
      * @param companyId: 机构id
