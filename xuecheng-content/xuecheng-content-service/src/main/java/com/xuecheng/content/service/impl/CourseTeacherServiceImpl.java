@@ -8,6 +8,7 @@ import com.xuecheng.content.model.dto.SaveCourseTeacherDto;
 import com.xuecheng.content.model.po.CourseBase;
 import com.xuecheng.content.model.po.CourseTeacher;
 import com.xuecheng.content.service.CourseTeacherService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ import java.util.List;
  * @date: 2023/4/30 21:01
  * @version: 1.0
  */
+@Slf4j
 @Service
 public class CourseTeacherServiceImpl implements CourseTeacherService {
     @Autowired

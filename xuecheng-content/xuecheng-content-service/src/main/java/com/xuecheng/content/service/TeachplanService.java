@@ -8,8 +8,11 @@ package com.xuecheng.content.service;
  * @version: 1.0
  */
 
+import com.xuecheng.content.model.dto.BindTeachplanMediaDto;
 import com.xuecheng.content.model.dto.SaveTeachplanDto;
 import com.xuecheng.content.model.dto.TeachplanDto;
+import com.xuecheng.content.model.po.TeachplanMedia;
+
 import java.util.List;
 
 public interface TeachplanService {
@@ -50,4 +53,14 @@ public interface TeachplanService {
      * @date 2023/4/30 18:38
      */
     public void changeOrder(String move,Long teachplanId);
+
+    /**
+     * @param bindTeachplanMediaDto:
+     * @return TeachplanMedia
+     * @author buxitang
+     * @description 教学计划绑定媒资
+     * @date 2023/5/9 19:51
+     */
+    public TeachplanMedia associationMedia(BindTeachplanMediaDto bindTeachplanMediaDto);
+
 }

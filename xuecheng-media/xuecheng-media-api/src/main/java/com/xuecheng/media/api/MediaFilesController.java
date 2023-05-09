@@ -40,7 +40,7 @@ public class MediaFilesController {
     }
 
     @ApiOperation("上传文件")
-    @RequestMapping(value = "/upload/coursefile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "/upload/coursefile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public UploadFileResultDto upload(@RequestPart("filedata") MultipartFile filedata) throws IOException {
         Long companyId = 1232141425L;
         UploadFileParamsDto uploadFileParamsDto = new UploadFileParamsDto();
@@ -59,6 +59,7 @@ public class MediaFilesController {
         //上传文件
         UploadFileResultDto uploadFileResultDto = mediaFileService.uploadFile(companyId, uploadFileParamsDto, absolutePath);
 
+        tempFile.delete();
         return uploadFileResultDto;
     }
 

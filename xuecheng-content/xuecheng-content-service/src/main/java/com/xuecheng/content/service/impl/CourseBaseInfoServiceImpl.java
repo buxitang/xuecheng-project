@@ -12,6 +12,7 @@ import com.xuecheng.content.model.dto.EditCourseDto;
 import com.xuecheng.content.model.dto.QueryCourseParamsDto;
 import com.xuecheng.content.model.po.*;
 import com.xuecheng.content.service.CourseBaseInfoService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ import java.util.List;
  * @date: 2023/4/28 17:50
  * @version: 1.0
  */
-
+@Slf4j
 @Service
 public class CourseBaseInfoServiceImpl  implements CourseBaseInfoService {
     @Autowired
