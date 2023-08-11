@@ -68,6 +68,19 @@ public class MediaFileServiceImpl implements MediaFileService {
     private String bucket_Video;
 
     /**
+     * @param mediaId:
+     * @return MediaFiles
+     * @author buxitang
+     * @description 根据媒资id查询文件
+     * @date 2023/6/18 22:15
+     */
+    @Override
+    public MediaFiles getFileById(String mediaId){
+        MediaFiles mediaFiles = mediaFilesMapper.selectById(mediaId);
+        return mediaFiles;
+    }
+
+    /**
      * @param companyId:  机构id
      * @param pageParams:  分页参数
      * @param queryMediaParamsDto: 查询条件

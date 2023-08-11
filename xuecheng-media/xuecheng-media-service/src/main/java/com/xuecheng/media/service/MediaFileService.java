@@ -21,6 +21,15 @@ import java.io.File;
 public interface MediaFileService {
 
     /**
+     * @param mediaId: 媒资id
+     * @return MediaFiles
+     * @author buxitang
+     * @description 根据媒资id查询文件
+     * @date 2023/6/18 22:10
+     */
+    public MediaFiles getFileById(String mediaId);
+
+    /**
      * @param companyId: 机构id
      * @param pageParams: 分页参数
      * @param queryMediaParamsDto: 查询条件
