@@ -49,7 +49,7 @@ public interface MediaFileService {
      * @description 上传文件
      * @date 2023/5/2 12:22
      */
-    public UploadFileResultDto uploadFile(Long companyId, UploadFileParamsDto uploadFileParamsDto, String localFilePath);
+    public UploadFileResultDto uploadFile(Long companyId, UploadFileParamsDto uploadFileParamsDto, String localFilePath, String objectName);
 
     /**
      * @param companyId: 机构id

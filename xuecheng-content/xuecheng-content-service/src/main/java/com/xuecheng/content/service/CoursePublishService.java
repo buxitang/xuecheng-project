@@ -2,6 +2,8 @@ package com.xuecheng.content.service;
 
 import com.xuecheng.content.model.dto.CoursePreviewDto;
 
+import java.io.File;
+
 /**
  * @projectName: xuecheng-project
  * @author: buxitang
@@ -41,5 +43,23 @@ public interface CoursePublishService {
      */
     public void publish(Long companyId,Long courseId);
 
+    /**
+     * @param courseId: 课程id
+     * @return File
+     * @author buxitang
+     * @description 课程静态化
+     * @date 2023/8/14 1:07
+     */
+    public File generateCourseHtml(Long courseId);
+
+    /**
+     * @param courseId:
+     * @param file: 静态化文件
+     * @return void
+     * @author buxitang
+     * @description 上传课程静态化页面
+     * @date 2023/8/14 1:07
+     */
+    public void  uploadCourseHtml(Long courseId,File file);
 
 }
