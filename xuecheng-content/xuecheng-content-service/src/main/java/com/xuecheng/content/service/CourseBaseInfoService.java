@@ -26,7 +26,7 @@ public interface CourseBaseInfoService  {
    * @description 课程查询接口
    * @date 2023/4/28 17:59
    */
-  PageResult<CourseBase> queryCourseBaseList(PageParams pageParams, QueryCourseParamsDto queryCourseParamsDto);
+  PageResult<CourseBase> queryCourseBaseList(Long companyId,PageParams pageParams, QueryCourseParamsDto queryCourseParamsDto);
 
   /**
    * @param companyId:教学机构id

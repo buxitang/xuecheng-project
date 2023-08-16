@@ -15,7 +15,7 @@ spring:
             group: xuecheng-common
             refresh: true
           - data-id: feign-${spring.profiles.active}.yaml
-            group: xuecheng-plus-common
+            group: xuecheng-common
             refresh: true
 
   profiles:
