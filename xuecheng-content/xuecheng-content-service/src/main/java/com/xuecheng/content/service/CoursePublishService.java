@@ -71,4 +71,14 @@ public interface CoursePublishService {
      * @date 2023/8/17 1:41
      */
     public CoursePublish getCoursePublish(Long courseId);
+
+    /**
+     * @param courseId:
+     * @return CoursePublish
+     * @author buxitang
+     * @description 查询缓存中的课程信息
+     * @date 2023/8/21 22:57
+     */
+    public CoursePublish getCoursePublishCache(Long courseId);
+
 }
